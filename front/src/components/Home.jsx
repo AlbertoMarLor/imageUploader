@@ -71,31 +71,37 @@ export const Home = () => {
     };
 
     return (
-        <div className='card'>
-            <form id='form-file-upload' onDragEnter={handleDrag} onSubmit={(e) => {
-                e.preventDefault()
-            }} >
-                <input ref={inputRef} type="file" id='file' name='file0' onChange={handleChange} />
-                <label id='label-file-upload' htmlFor="file" className={dragActive ? "drag-active" : ""}>
-                    <div className='upload'>
-                        {extension ? <h2 className='wrong' >Wrong file extension!</h2> : <h2>Upload your image</h2>}
-                        <span>File should be Jpeg, Png...</span>
-                    </div>
-                    <div className='drop' >
-                        <div className="insideDrop">
-                            <img src={mountain} />
-                            <p>Drag & Drop your image here</p>
+        <>
+            <div className='card'>
+                <form id='form-file-upload' onDragEnter={handleDrag} onSubmit={(e) => {
+                    e.preventDefault()
+                }} >
+                    <input ref={inputRef} type="file" id='file' name='file0' onChange={handleChange} />
+                    <label id='label-file-upload' htmlFor="file" className={dragActive ? "drag-active" : ""}>
+                        <div className='upload'>
+                            {extension ? <h2 className='wrong' >Wrong file extension!</h2> : <h2>Upload your image</h2>}
+                            <span>File should be Jpeg, Png...</span>
                         </div>
+                        <div className='drop' >
+                            <div className="insideDrop">
+                                <img src={mountain} />
+                                <p>Drag & Drop your image here</p>
+                            </div>
 
-                    </div>
-                    <div className='button'>
-                        <p>Or</p>
-                        <button onClick={onButtonClick}>Choose a file</button>
-                    </div>
-                </label>
-                {dragActive && <div id='drag-file-element' onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop} >
-                </div>}
-            </form>
-        </div>
+                        </div>
+                        <div className='button'>
+                            <p>Or</p>
+                            <button onClick={onButtonClick}>Choose a file</button>
+                        </div>
+                    </label>
+                    {dragActive && <div id='drag-file-element' onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop} >
+                    </div>}
+                </form>
+            </div>
+            <footer>
+                <p>Made with React - Alberto Martín Lorencés - </p>
+                <a href='https://albmarlor-web.onrender.com/' target='_blank' className='portfolio' > Portfolio</a>
+            </footer>
+        </>
     )
 }
